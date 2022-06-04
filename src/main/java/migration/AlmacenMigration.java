@@ -15,22 +15,49 @@ public class AlmacenMigration {
     public AlmacenMigration(){
         DbConfig dbConfig = new DbConfig("localhost", "3306", "merca_facil_laura");
         connection = dbConfig.connect();
-        creteTableAlmacen();
+        //creteTableAlmacen();
     }
 
 
     public void creteTableAlmacen(){
         String query = String.format(
-                "CREATE TABLE almacen" +
-                        "(id_almacen INT PRIMARY KEY," +
-                        "codigo_almacen int(30), nombre_almacen varchar(30))"+
-                        "direccion_almacen varchar(30), telefono_almacen int(30)), gerente int(30))"    );
+                "CREATE TABLE IF NOT EXISTS merca_facil_laura.almacen (\n" +
+                        "  id_almacen INT NOT NULL AUTO_INCREMENT,\n" +
+                        "  codigo_almacen INT NOT NULL,\n" +
+                        "  nombre_almacen VARCHAR(50) NOT NULL,\n" +
+                        "  direccion_almacen VARCHAR(30) NOT NULL,\n" +
+                        "  telefono_almacen INT NOT NULL,\n" +
+                        "  gerente VARCHAR(45) NOT NULL,\n" +
+                        "  PRIMARY KEY (`id_almacen`))\n" +
+                        "ENGINE = InnoDB\n" +
+                        "DEFAULT CHARACTER SET = utf8mb4\n" +
+                        "COLLATE = utf8mb4_0900_ai_ci;"    );
 
         try{
             Statement statement = connection.createStatement();
             statement.execute(query);
             statement.close();
             connection.close();
+            System.out.println("se crea de forma exitosa la tabla Almacen");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void insertAlmacen(String codigo, String nombre,String direccion, String telefono,String gerente){
+        String query = String.format(
+                "INSERT INTO `merca_facil_laura`.`almacen`" +
+                        "(codigo_almacen, nombre_almacen, direccion_almacen, telefono_almacen, gerente) " +
+                        "values ('%s', '%s', '%s', '%s', '%s');",codigo,nombre,direccion,telefono,gerente );
+
+        System.out.println(query);
+
+        try{
+            Statement statement = connection.createStatement();
+            statement.execute(query);
+            statement.close();
+            connection.close();
+            System.out.println("se ingresa el almacen de forma exitosa");
         }catch (Exception e){
             e.printStackTrace();
         }

@@ -1,14 +1,16 @@
 dtos/UserDto.java
  dtos.UserDto
+db/DbConfig.java
+ db.DbConfig
+migration/ConfigMigration.java
+ migration.ConfigMigration
 models/Almacen.java
  models.Almacen
 migration/AlmacenMigration.java
  migration.AlmacenMigration
-migration/ConfigMigration.java
- migration.ConfigMigration
-db/DbConfig.java
- db.DbConfig
-models/AlmacenModel.java
- models.AlmacenModel
+dtos/AlmacenDto.java
+ dtos.AlmacenDto
 Main.java
  Main
+models/AlmacenModel.java
+ models.AlmacenModel

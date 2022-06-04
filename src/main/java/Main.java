@@ -1,4 +1,6 @@
+import dtos.AlmacenDto;
 import dtos.UserDto;
+import migration.AlmacenMigration;
 import models.AlmacenModel;
 
 import java.sql.*;
@@ -10,33 +12,21 @@ public class Main {
      public static void main(String[] args) {
          System.out.println("hola");
 
+         AlmacenMigration almacenMigration = new AlmacenMigration();
+         //almacenMigration.creteTableAlmacen();
+        /* almacenMigration.insertAlmacen("123","ferreteria","venecia","8402497","daniela4");*/
+
          AlmacenModel almacenModel = new AlmacenModel();
-         almacenModel.getAlmacen("20");
+        // AlmacenDto almacen = almacenModel.getAlmacenById("2");
+         //List<AlmacenDto> almacenList = almacenModel.listAlmacen();
+         almacenModel.updateAlmacen("3","333","fre y ad","medellin","2220807","diego");
+        // System.out.println(almacen.getId_almacen());
         /* List<UserDto> users = AlmacenModel;
          for(UserDto user: users){
              System.out.println(user.getName());
          }*/
      }
 
-
-
-
-
-
-       //  try {
-         //    Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/merca_facil_laura","root","123456");
-
-
-          //   Statement statement = connection.createStatement();
-           //  ResultSet resultSet = statement.executeQuery("select * from almacen");
-          //   while (resultSet.next()) {
-          //       System.out.println(resultSet.getString("gerente"));
-            // }
-
-       //  } catch (SQLException throwables) {
-          //   throwables.printStackTrace();
-       //  }
-
-     }
+}
 
 
