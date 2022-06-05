@@ -50,7 +50,7 @@ public class AlmacenMigration {
                         "(codigo_almacen, nombre_almacen, direccion_almacen, telefono_almacen, gerente) " +
                         "values ('%s', '%s', '%s', '%s', '%s');",codigo,nombre,direccion,telefono,gerente );
 
-        System.out.println(query);
+        //System.out.println(query);
 
         try{
             Statement statement = connection.createStatement();

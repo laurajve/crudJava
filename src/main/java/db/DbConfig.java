@@ -18,7 +18,7 @@ public class DbConfig {
         try{
             String url = "jdbc:mysql://"+ host+":"+ port + "/" + db;
             connection = DriverManager.getConnection(url,"root","123456");
-            System.out.println("conectado a la base de datos");
+           // System.out.println("conectado a la base de datos");
         } catch (Exception e){
             e.printStackTrace();
         }
